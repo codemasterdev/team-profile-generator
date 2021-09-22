@@ -1,3 +1,3 @@
-const initialPrompts = require('./lib/questions');
+const initialPrompts = require('./lib/prompts');
 
 initialPrompts();
