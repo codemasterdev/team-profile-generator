@@ -10,7 +10,7 @@ test(`Instantiates a new Engineer with arguments`, () => {
 });
 
 test(`Getters for inherited methods return the proper values`, () => {
-   const engineer = new Engineer('Brent', '23', 'brentgaines@gmail.com', 'School of Brent');
+   const engineer = new Engineer('Brent', '23', 'brentgaines@gmail.com', 'brentocracy');
 
    expect(engineer.getName()).toBe('Brent');
    expect(engineer.getId()).toBe('23');
@@ -18,14 +18,14 @@ test(`Getters for inherited methods return the proper values`, () => {
 });
 
 test(`getGithub() returns the GitHub username value`, () => {
-   const engineer = new Engineer('Brent', '23', 'brentgaines@gmail.com');
+   const engineer = new Engineer('Brent', '23', 'brentgaines@gmail.com', 'brentocracy');
 
    expect(engineer.getGithub()).toBe(engineer.github);
 });
 
 
 test(`getRole() returns 'Engineer'`, () => {
-   const engineer = new Engineer('Brent', '23', 'brentgaines@gmail.com');
+   const engineer = new Engineer('Brent', '23', 'brentgaines@gmail.com', 'brentocracy');
 
    expect(engineer.getRole()).toBe('Engineer');
 });

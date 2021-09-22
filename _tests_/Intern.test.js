@@ -18,14 +18,14 @@ test(`Getters for inherited methods return the proper values`, () => {
 });
 
 test(`getSchool() returns the school value`, () => {
-   const intern = new Intern('Brent', '23', 'brentgaines@gmail.com');
+   const intern = new Intern('Brent', '23', 'brentgaines@gmail.com', 'School of Brent');
 
    expect(intern.getSchool()).toBe(intern.school);
 });
 
 
 test(`getRole() returns 'Intern'`, () => {
-   const intern = new Intern('Brent', '23', 'brentgaines@gmail.com');
+   const intern = new Intern('Brent', '23', 'brentgaines@gmail.com', 'School of Brent');
 
    expect(intern.getRole()).toBe('Intern');
 });
