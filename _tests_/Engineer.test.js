@@ -9,14 +9,22 @@ test(`Instantiates a new Engineer with arguments`, () => {
    expect(engineer.github).toBe('brentocracy');
 });
 
-test(`getGithub() should return the GitHub username value`, () => {
+test(`Getters for inherited methods return the proper values`, () => {
+   const engineer = new Engineer('Brent', '23', 'brentgaines@gmail.com', 'School of Brent');
+
+   expect(engineer.getName()).toBe('Brent');
+   expect(engineer.getId()).toBe('23');
+   expect(engineer.getEmail()).toBe('brentgaines@gmail.com');
+});
+
+test(`getGithub() returns the GitHub username value`, () => {
    const engineer = new Engineer('Brent', '23', 'brentgaines@gmail.com');
 
    expect(engineer.getGithub()).toBe(engineer.github);
 });
 
 
-test(`getRole() should return 'Engineer'`, () => {
+test(`getRole() returns 'Engineer'`, () => {
    const engineer = new Engineer('Brent', '23', 'brentgaines@gmail.com');
 
    expect(engineer.getRole()).toBe('Engineer');
