@@ -4,17 +4,26 @@
   box-sizing: border-box;
 }
 
-/* variables here */
+:root {
+  --bg-dark: hsl(222, 50%, 4%);
+  --card-body: hsl(249, 61%, 15%);
+  --manager: hsl(13, 90%, 58%);
+  --engineer: hsl(173, 70%, 35%);
+  --intern: hsl(61, 64%, 63%);
+  --header: rgb(111, 92, 219);
+}
 
 body {
-  background: #05080f;
+  background: var(--bg-dark);
 }
 
 header {
+  padding: 3rem;
   text-align: center;
 }
 
 h1 {
+  color: var(--header);
 }
 
 .card-position {
@@ -27,7 +36,7 @@ h1 {
 }
 
 .card-body {
-  background-color: #130f44;
+  background-color: var(--card-body);
   border: none;
   border-radius: 20px;
 }
@@ -37,15 +46,28 @@ h2 {
 }
 
 .card-title-manager {
-  background-color: #f46036;
+  background-color: var(--manager);
 }
 
 .card-title-engineer {
-  background-color: #1b998b;
+  background-color: var(--engineer);
 }
 
 .card-title-intern {
-  background-color: #dbdd62;
+  background-color: var(--intern);
+}
+
+i {
+  /* icons */
+}
+
+.card-subtitle {
+  /* role */
+  padding: 1rem;
+}
+
+.card-text span {
+  font-weight: bold;
 }
 
 .card-text {
