@@ -1,8 +1,30 @@
 const fs = require('fs');
 
-renderPageTemplate = () => {
+// take in array of all employees
+buildTeam = employees => {
 
-   return `<!DOCTYPE html >
+   // initialize array for each card to be added to html template
+   const employeeCards = [];
+
+   for (emp of employees) {
+      // for each employee, push respective card into html template
+      if (emp.getRole() === 'Manager') {
+         employeeCards.push(emp.getCard());
+      } else if (emp.getRole() === 'Engineer') {
+         employeeCards.push(emp.getRole());
+      } else if (emp.getRole() === 'Intern') {
+         employeeCards.push(emp.getRole());
+      }
+   }
+
+   // build html page
+   buildPage(employeeCards);
+};
+
+// take cards and build the html page
+buildPage = employeeCards => {
+
+   const htmlTemplate = `<!DOCTYPE html >
    <html lang="en">
       <head>
          <meta charset="UTF-8" />
@@ -29,15 +51,23 @@ renderPageTemplate = () => {
 
          <main>
             <div class="container d-flex flex-wrap justify-content-center">
-         `
+            ${employeeCards.join('')}
+         </main>
+      </body>
+   </html>
+`
+   renderHtmlTemplate(htmlTemplate);
 };
 
-// create html template file in src directory
-try {
-   fs.writeFileSync('/src/index.html', htmlTemplate)
 
-} catch (err) {
-   throw new Error('Something went wrong when writing your file!');
-}
+renderHtmlTemplate = async (htmlTemplate) => {
+   // create html template file in src directory
+   try {
+      await fs.writeFileSync('./src/index.html', htmlTemplate)
 
-writeFile(renderPageTemplate());
+   } catch (err) {
+      console.log(`${err} -- Something went wrong when writing your file!`);
+   }
+};
+
+module.exports = { buildTeam, buildPage, renderHtmlTemplate };
