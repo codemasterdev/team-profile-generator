@@ -7,10 +7,12 @@
 :root {
   --bg-dark: hsl(222, 50%, 4%);
   --card-body: hsl(249, 61%, 15%);
+  --card-border: hsl(39, 81%, 49%);
   --manager: hsl(13, 90%, 58%);
   --engineer: hsl(173, 70%, 35%);
   --intern: hsl(61, 64%, 63%);
   --header: rgb(111, 92, 219);
+  --card-text: rgb(182, 176, 174);
 }
 
 body {
@@ -36,13 +38,15 @@ h1 {
 }
 
 .card-body {
-  background-color: var(--card-body);
-  border: none;
+  background-color: transparent;
+  border: 1px solid var(--card-border);
+  box-shadow: 0px 0px 10px 2px var(--card-border);
   border-radius: 20px;
 }
 
 h2 {
   border-radius: 8px;
+  padding: 0.5rem;
 }
 
 .card-title-manager {
@@ -57,12 +61,9 @@ h2 {
   background-color: var(--intern);
 }
 
-i {
-  /* icons */
-}
-
 .card-subtitle {
   /* role */
+  color: var(--card-border);
   padding: 1rem;
 }
 
@@ -71,4 +72,5 @@ i {
 }
 
 .card-text {
+  color: var(--card-text);
 }
