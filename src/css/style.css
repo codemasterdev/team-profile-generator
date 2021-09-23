@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+/* variables here */
+
+body {
+  background: #05080f;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+}
+
+.card-position {
+  margin: 1rem;
+  background-color: transparent;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.card-body {
+  background-color: #130f44;
+  border: none;
+  border-radius: 20px;
+}
+
+h2 {
+  border-radius: 8px;
+}
+
+.card-title-manager {
+  background-color: #f46036;
+}
+
+.card-title-engineer {
+  background-color: #1b998b;
+}
+
+.card-title-intern {
+  background-color: #dbdd62;
+}
+
+.card-text {
+}
