@@ -1,9 +1,33 @@
 const fs = require('fs');
 
-module.exports =
-   buildTeam = () => {
 
-      const htmlTemplate = `<!DOCTYPE html >
+
+// take in array of all employees
+buildTeam = employees => {
+
+   // initialize array for each card to be added to html template
+   const employeeCards = [];
+
+   for (emp of employees) {
+      // for each employee, push respective card into html template
+      if (emp.getRole() === 'Manager') {
+         employeeCards.push(emp.getCard());
+      } else if (emp.getRole() === 'Engineer') {
+         employeeCards.push(emp.getRole());
+      } else if (emp.getRole() === 'Intern') {
+         employeeCards.push(emp.getRole());
+      }
+   }
+
+   // build html page
+   buildPage(employeeCards);
+};
+
+// take cards and build the html page
+
+buildPage = employeeCards => {
+
+   const htmlTemplate = `<!DOCTYPE html >
    <html lang="en">
       <head>
          <meta charset="UTF-8" />
@@ -30,9 +54,14 @@ module.exports =
 
          <main>
             <div class="container d-flex flex-wrap justify-content-center">
+            ${employeeCards.join('')}
+         </main>
+      </body>
+   </html>
+
          `
-      renderHtmlTemplate(htmlTemplate);
-   };
+   renderHtmlTemplate(htmlTemplate);
+};
 
 
 renderHtmlTemplate = async (htmlTemplate) => {
@@ -43,7 +72,4 @@ renderHtmlTemplate = async (htmlTemplate) => {
    } catch (err) {
       console.log(`${err} -- Something went wrong when writing your file!`);
    }
-
-   addCards();
 };
-
