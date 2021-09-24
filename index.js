@@ -1,3 +1,3 @@
-const initialPrompts = require('./lib/prompts');
+const startPrompts = require('./src/prompts');
 
 init();

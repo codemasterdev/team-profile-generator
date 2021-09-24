@@ -1,9 +1,9 @@
 const inquirer = require('inquirer');
 const validator = require('node-email-validation');
-const fs = require('fs');
-const Manager = require('./Manager');
-const Engineer = require('./Engineer');
-const Intern = require('./Intern');
+const Manager = require('../lib/Manager');
+const Engineer = require('../lib/Engineer');
+const Intern = require('../lib/Intern');
+const generatePageFunctions = require('./html-output');
 
 // create array to hold all team members
 const teamMembers = [];
@@ -68,31 +68,32 @@ module.exports =
       addMemberOrBuildTeam();
    };
 
-const addMemberOrBuildTeam = async () => {
-   const userChoice = await inquirer
-      .prompt([
-         {
-            type: 'list',
-            name: 'addOrBuild',
-            message: 'Do you want to add an employee or finish building your team?',
-            choices: ['Add an engineer', 'Add an intern', 'Finish building my team']
-         },
-      ]);
+module.exports =
+   addMemberOrBuildTeam = async () => {
+      const userChoice = await inquirer
+         .prompt([
+            {
+               type: 'list',
+               name: 'addOrBuild',
+               message: 'Do you want to add an employee or finish building your team?',
+               choices: ['Add an engineer', 'Add an intern', 'Finish building my team']
+            },
+         ]);
 
-   // use a switch statement to call the proper function based on the user choice
-   switch (userChoice.addOrBuild) {
-      case 'Add an engineer':
-         engineerPrompts();
-         break;
-      case 'Add an intern':
-         internPrompts();
-         break;
-      case 'Finish building my team':
-         buildTeam(teamMembers);
-         console.log(`Congratulations! Check your /src directory's index.html file to see your team page!`);
-         break;
+      // use a switch statement to call the proper function based on the user choice
+      switch (userChoice.addOrBuild) {
+         case 'Add an engineer':
+            engineerPrompts();
+            break;
+         case 'Add an intern':
+            internPrompts();
+            break;
+         case 'Finish building my team':
+            buildTeam(teamMembers);
+            console.log(`Congratulations! Check your /dist directory's index.html file to see your team page!`);
+            break;
+      };
    };
-}
 
 engineerPrompts = async () => {
    const answers = await inquirer
@@ -208,74 +209,4 @@ internPrompts = async () => {
    const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
    teamMembers.push(intern);
    addMemberOrBuildTeam();
-};
-
-// take in array of all employees
-buildTeam = () => {
-   // initialize array for each card to be added to html template
-   const employeeCards = [];
-   console.log(teamMembers);
-   for (i = 0; i < teamMembers.length; i++) {
-      // for each employee, push respective card into html template
-      if (teamMembers[i].getRole() === 'Manager') {
-         employeeCards.push(teamMembers[i].getCard());
-      } else if (teamMembers[i].getRole() === 'Engineer') {
-         employeeCards.push(teamMembers[i].getCard());
-      } else if (teamMembers[i].getRole() === 'Intern') {
-         employeeCards.push(teamMembers[i].getCard());
-      }
-   }
-
-   console.log('Employee cards: ' + employeeCards);
-   // build html page
-   buildPage(employeeCards);
-};
-
-// take cards and build the html page
-buildPage = employeeCards => {
-
-   const htmlTemplate = `<!DOCTYPE html >
-   <html lang="en">
-      <head>
-         <meta charset="UTF-8" />
-         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-         <title>Build Your Team</title>
-         <script
-            src="https://kit.fontawesome.com/b872771612.js"
-            crossorigin="anonymous"
-         ></script>
-         <link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossorigin="anonymous"
-         />
-         <link rel="stylesheet" href="./css/style.css" />
-      </head>
-
-      <body>
-         <header>
-            <h1>My Team Builder</h1>
-         </header>
-
-         <main>
-            <div class="container d-flex flex-wrap justify-content-center">
-            ${employeeCards.join('')}
-         </main>
-      </body>
-   </html>`
-
-   renderHtmlTemplate(htmlTemplate);
-};
-
-
-renderHtmlTemplate = async (htmlTemplate) => {
-   // create html template file in src directory
-   try {
-      await fs.writeFileSync('./src/index.html', htmlTemplate)
-
-   } catch (err) {
-      console.log(`${err} -- Something went wrong when writing your file!`);
-   }
 };
