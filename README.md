@@ -64,8 +64,6 @@ Open up your preferred terminal window and launch the application with `node ind
 
 You will immediately be welcomed and prompted in your console. Use is very simple -- the first series of questions is for the manager at your company (whether you or someone else). All prompts are required to be filled out and email addresses must be validated through the "a@b.c" formatting.
 
-<!-- screenshot of command line intro here -->
-
 After the end of the manager information prompt, you will be given a choice: add an engineer, add an intern, or finish building the team (thus rendering the HTML from your given list of employees).
 
 You're finished! Go to your `/dist` directory and you will find your `index.html` landing page, along with a `css.style` file, which is fully editable if so desired. 
@@ -80,7 +78,9 @@ The application contains two joint ventures, separated into distinct scripting f
 
 As noted above, you will be prompted from the beginning to input the name, email, employee ID, and office number of your manager. Once this is completed, you will be given the choice to add an engineer, add an intern, or finish up.
 
-<!-- screenshot of user choice prompt-->
+<img src="./assets/img/cli.png" alt="screenshot of initial command line prompts" height="400px" width="800px">
+
+*Fig. 1: The user has a choice at the end of each employee information prompt*
 
 An engineer and an intern will get the same prompts except for the last, which will ask an engineer for his or her GitHub username, and an intern for his or her school.
 
@@ -88,7 +88,7 @@ The prompts are rigid and required for now, but future versions will be more dyn
 
 #### Team Profile Page Generation
 
-<img src="./assets/img/render-html.png" alt="code block showing html template rendering function">
+<img src="./assets/img/render-html.png" alt="code block showing html template rendering function" height="600px" width="800px">
 
 *Fig 2: This is the HTML skeleton template; all employee cards are joined into the card container for display*
 
