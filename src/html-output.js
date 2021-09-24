@@ -6,6 +6,12 @@ buildTeam = (teamMembers) => {
    const employeeCards = [];
    // push each employee card into the employee card array to be rendered onto the HTML page
    for (member of teamMembers) { employeeCards.push(member.getCard()); };
+   console.log(
+      `
+      YOUR TEAM MEMBERS
+      
+      `);
+   console.table(teamMembers);
    buildPage(employeeCards);
 };
 

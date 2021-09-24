@@ -10,6 +10,16 @@ const teamMembers = [];
 
 module.exports =
    init = async () => {
+      // welcome user to the app
+      console.log
+         (`
+      *******************************
+      *******************************
+      WELCOME TO YOUR TEAM GENERATOR!
+      *******************************
+      *******************************
+      
+      `)
       const answers = await inquirer
          .prompt([
             {
@@ -96,6 +106,15 @@ module.exports =
    };
 
 engineerPrompts = async () => {
+   console.log
+      (`
+      *******************************
+      *******************************
+      <<<<<<< ADD AN ENGINEER >>>>>>> 
+      *******************************
+      *******************************
+      
+      `)
    const answers = await inquirer
       .prompt([
          {
@@ -154,6 +173,15 @@ engineerPrompts = async () => {
 };
 
 internPrompts = async () => {
+   console.log
+      (`
+      *******************************
+      *******************************
+      <<<<<<<< ADD AN INTERN >>>>>>>> 
+      *******************************
+      *******************************
+      
+      `)
    const answers = await inquirer
       .prompt([
          {
