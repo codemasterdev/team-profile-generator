@@ -4,12 +4,14 @@
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![Node](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![Bootstrap](https://img.shields.io/badge/Bootstrap-00B2FF?style=for-the-badge&logo=bootstrap&logoColor=white)
 
+<!-- screenshot of html page here-->
+
 ## TABLE OF CONTENTS
   1. [Description](#description)
   2. [Installation](#installation)
   3. [Usage](#usage)
-  4. [Technologies](#contribution)
-  5. [General Info](#general)
+  4. [Technologies](#technologies)
+  5. [Contribution](#contribution)
   6. [Testing](#testing)
   7. [License](#license)
   8. [About](#about)
@@ -58,6 +60,54 @@ Imports are included in the code as such:
 
 ## Usage
 
+Open up your preferred terminal window and launch the application with `node index`. 
+
+You will immediately be welcomed and prompted in your console. Use is very simple -- the first series of questions is for the manager at your company (whether you or someone else). All prompts are required to be filled out and email addresses must be validated through the "a@b.c" formatting.
+
+<!-- screenshot of command line intro here -->
+
+After the end of the manager information prompt, you will be given a choice: add an engineer, add an intern, or finish building the team (thus rendering the HTML from your given list of employees).
+
+You're finished! Go to your `/dist` directory and you will find your `index.html` landing page, along with a `css.style` file, which is fully editable if so desired. 
+
+> *NOTE: To overwrite your team profile with a new one, launch the application and fill out the prompts again. The `index.html` file will be automatically overriden with the new information.*
+
+### General
+
+The application contains two joint ventures, separated into distinct scripting files: `prompts.js` and `html-output.js`. More on each below.
+
+#### User Prompting
+
+As noted above, you will be prompted from the beginning to input the name, email, employee ID, and office number of your manager. Once this is completed, you will be given the choice to add an engineer, add an intern, or finish up.
+
+<!-- screenshot of user choice prompt-->
+
+An engineer and an intern will get the same prompts except for the last, which will ask an engineer for his or her GitHub username, and an intern for his or her school.
+
+The prompts are rigid and required for now, but future versions will be more dynamic with a wider range of inputs.
+
+#### Team Profile Page Generation
+
+<img src="./assets/img/render-html.png" alt="code block showing html template rendering function">
+
+*Fig 2: This is the HTML skeleton template; all employee cards are joined into the card container for display*
+
+
+Once you finish building your team, the application then takes your list of employee information and writes it into an `index.html` file:
+
+```c
+   renderHtmlTemplate = async (htmlTemplate) => {
+   // create html template file in /dist directory
+   try {
+      await fs.writeFileSync('./dist/index.html', htmlTemplate)
+
+   } catch (err) {
+      console.log(`${err} -- Something went wrong when writing your file!`);
+   }
+};
+```
+
+
 ---
 
 ## Technologies
@@ -74,27 +124,42 @@ Imports are included in the code as such:
 
 ---
 
-## General
-
-### User Prompting
-
-### Team Profile Page Generation
-
 ## Contribution
 
-Anyone is welcome to `clone` or `fork` and submit `pull` requests from the repository. Collaboration is fun.
+If you would like to contribute to this project:
+
+Navigate to your workspace in your terminal and clone the repository code there using `git clone`. Make sure to create your own branch with `git checkout -b branch-name` and push all changes with `git push origin branch-name` to open up a pull request. 
 
 ---
 
 ## Testing
 
----
+In order to run the fundamental testing apparatus of the application in which all four classes (Manager, Engineer, Intern, and the Employee super-class which has its properties inherited by the others), run `Jest` by typing `npm test` into your terminal.
+
+For a more detailed layout which shows you every line, function, and script file tested, you can use the `npm test -- --coverage` command.
+
+To add tests, you can append whichever tests you'd like on to the respective class test file. A standard `Jest` test looks something like this:
+
+```c
+   test(`getSchool() returns a string`, () => {
+   const intern = new Intern('Brent', '23', 'brentgaines@gmail.com', 'School of Brent');
+
+   expect(intern.getCard()).toEqual(expect.any(String));
+});
+```
+
+The name of the test followed by a function which instantiates a mock of whichever object/array/function/variable is being tested, followed by what should be the expected result of the test.
+
+
+## Licensing
+
+This application is operating under the `MIT` license.
 
 ## About
 
-Brent is a Full-Stack Web Developer committed to building fun and efficient projects.
+I am a Full-Stack Web Developer committed to building fun and efficient projects, and also very excited for hockey season.
 
-I'm always available for collaboration, constructive criticism, and pleasantries.
+I'm always available for collaboration and pleasantries.
 
 Kindly reach out at <worldsbestbrent@gmail.com>!
 
