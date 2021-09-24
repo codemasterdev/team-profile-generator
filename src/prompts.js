@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const validator = require('node-email-validation');
+const chalk = require('chalk');
 const Manager = require('../lib/Manager');
 const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
@@ -11,21 +12,23 @@ const teamMembers = [];
 module.exports =
    init = async () => {
       // welcome user to the app
-      console.log
-         (`
-      *******************************
-      *******************************
-      WELCOME TO YOUR TEAM GENERATOR!
-      *******************************
-      *******************************
-      
-      `)
+      console.log(
+         chalk` {bold.magenta
+   &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+   &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+   ***************************************
+   WELCOME TO YOUR TEAM PROFILE GENERATOR!
+   ***************************************
+   &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+   &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&}
+   `
+      )
       const answers = await inquirer
          .prompt([
             {
                type: 'input',
                name: 'name',
-               message: `What's the name of your manager?`,
+               message: chalk.redBright(`What's the name of your manager?`),
                validate: nameInput => {
                   if (!nameInput) {
                      console.log(`Surely, your manager's name isn't an empty space. We'll need a name.`);
@@ -37,7 +40,7 @@ module.exports =
             {
                type: 'input',
                name: 'id',
-               message: ({ name }) => `Great. What is ${name}'s' employee ID?`,
+               message: ({ name }) => chalk.redBright(`Great. What is ${name}'s' employee ID?`),
                validate: idInput => {
                   if (!idInput) {
                      console.log(`An ID must be entered.`);
@@ -49,7 +52,7 @@ module.exports =
             {
                type: 'input',
                name: 'email',
-               message: ({ name }) => `Alright, and what is ${name}'s email address?`,
+               message: ({ name }) => chalk.redBright(`Alright, and what is ${name}'s email address?`),
                validate: emailInput => {
                   if (!validator.is_email_valid(emailInput)) {
                      console.log(`Make sure you get the format right and try again.`);
@@ -61,7 +64,7 @@ module.exports =
             {
                type: 'input',
                name: 'officeNumber',
-               message: `Finally, what about the office number?`,
+               message: chalk.redBright(`Finally, what about the office number?`),
                validate: officeNumberInput => {
                   if (!officeNumberInput) {
                      console.log(`Either your manager works in a transient abyss (much respect) or you've made a mistake. Please enter a valid office number.`);
@@ -106,21 +109,22 @@ module.exports =
    };
 
 engineerPrompts = async () => {
-   console.log
-      (`
-      *******************************
-      *******************************
-      <<<<<<< ADD AN ENGINEER >>>>>>> 
-      *******************************
-      *******************************
-      
-      `)
+   console.log(
+      chalk` {bold.green
+   <<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>
+   **************************************
+   ~~~~~~~~~~ ADD AN ENGINEER ~~~~~~~~~~~
+   **************************************
+   <<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>}
+   
+   `
+   )
    const answers = await inquirer
       .prompt([
          {
             type: 'input',
             name: 'name',
-            message: `What's your engineer's name?`,
+            message: chalk.green(`What's your engineer's name?`),
             validate: nameInput => {
                if (!nameInput) {
                   console.log(`You need a name for your engineer!`);
@@ -132,7 +136,7 @@ engineerPrompts = async () => {
          {
             type: 'input',
             name: 'id',
-            message: ({ name }) => `What is ${name}'s' employee ID?`,
+            message: ({ name }) => chalk.green(`What is ${name}'s' employee ID?`),
             validate: idInput => {
                if (!idInput) {
                   console.log(`An ID must be entered.`);
@@ -144,7 +148,7 @@ engineerPrompts = async () => {
          {
             type: 'input',
             name: 'email',
-            message: ({ name }) => `What is ${name}'s email address?`,
+            message: ({ name }) => chalk.green(`What is ${name}'s email address?`),
             validate: emailInput => {
                if (!validator.is_email_valid(emailInput)) {
                   console.log(`You must have a valid email address format.`);
@@ -156,7 +160,7 @@ engineerPrompts = async () => {
          {
             type: 'input',
             name: 'github',
-            message: ({ name }) => `What is ${name}'s GitHub username?'`,
+            message: ({ name }) => chalk.green(`What is ${name}'s GitHub username?`),
             validate: githubInput => {
                if (!githubInput) {
                   console.log(`Please enter a GitHub username.`);
@@ -173,21 +177,22 @@ engineerPrompts = async () => {
 };
 
 internPrompts = async () => {
-   console.log
-      (`
-      *******************************
-      *******************************
-      <<<<<<<< ADD AN INTERN >>>>>>>> 
-      *******************************
-      *******************************
-      
-      `)
+   console.log(
+      chalk` {bold.yellow
+   <<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>
+   **************************************
+   ~~~~~~~~~~~ ADD AN INTERN ~~~~~~~~~~~~
+   **************************************
+   <<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>}
+   
+   `
+   )
    const answers = await inquirer
       .prompt([
          {
             type: 'input',
             name: 'name',
-            message: `What's your intern's name?`,
+            message: chalk.yellow(`What's your intern's name?`),
             validate: nameInput => {
                if (!nameInput) {
                   console.log(`You need a name entry!`);
@@ -199,7 +204,7 @@ internPrompts = async () => {
          {
             type: 'input',
             name: 'id',
-            message: ({ name }) => `What is ${name}'s' employee ID?`,
+            message: ({ name }) => chalk.yellow(`What is ${name}'s' employee ID?`),
             validate: idInput => {
                if (!idInput) {
                   console.log(`An ID must be entered.`);
@@ -211,7 +216,7 @@ internPrompts = async () => {
          {
             type: 'input',
             name: 'email',
-            message: ({ name }) => `What is ${name}'s email address?`,
+            message: ({ name }) => chalk.yellow(`What is ${name}'s email address?`),
             validate: emailInput => {
                if (!validator.is_email_valid(emailInput)) {
                   console.log(`You must have a valid email address format.`);
@@ -223,7 +228,7 @@ internPrompts = async () => {
          {
             type: 'input',
             name: 'school',
-            message: ({ name }) => `Where does ${name}'s go to school?`,
+            message: ({ name }) => chalk.yellow(`Where does ${name} go to school?`),
             validate: schoolInput => {
                if (!schoolInput) {
                   console.log(`Please enter a school.`);

@@ -1,4 +1,5 @@
 const fs = require('fs');
+const chalk = require('chalk');
 const teamInfoForPage = require('./prompts');
 
 buildTeam = (teamMembers) => {
@@ -7,9 +8,8 @@ buildTeam = (teamMembers) => {
    // push each employee card into the employee card array to be rendered onto the HTML page
    for (member of teamMembers) { employeeCards.push(member.getCard()); };
    console.log(
-      `
-      YOUR TEAM MEMBERS
-      
+      chalk` 
+{bold.green YOUR TEAM MEMBERS:}      
       `);
    console.table(teamMembers);
    buildPage(employeeCards);
