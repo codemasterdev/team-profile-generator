@@ -17,10 +17,10 @@ test(`Getters for inherited methods return the proper values`, () => {
    expect(intern.getEmail()).toBe('brentgaines@gmail.com');
 });
 
-test(`getSchool() returns the school value`, () => {
+test(`getSchool() returns a string`, () => {
    const intern = new Intern('Brent', '23', 'brentgaines@gmail.com', 'School of Brent');
 
-   expect(intern.getSchool()).toBe(intern.school);
+   expect(intern.getCard()).toEqual(expect.any(String));
 });
 
 
@@ -28,6 +28,12 @@ test(`getRole() returns 'Intern'`, () => {
    const intern = new Intern('Brent', '23', 'brentgaines@gmail.com', 'School of Brent');
 
    expect(intern.getRole()).toBe('Intern');
+});
+
+test(`getCard() returns a string`, () => {
+   const intern = new Intern('Brent', '23', 'brentgaines@gmail.com', 'School of Brent');
+
+   expect(intern.getCard()).toEqual(expect.any(String));
 });
 
 
