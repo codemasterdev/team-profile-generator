@@ -49,21 +49,25 @@ h2 {
 }
 
 .card-title-manager {
+  text-align: center;
   background-color: var(--manager);
 }
 
 .card-title-engineer {
+  text-align: center;
   background-color: var(--engineer);
 }
 
 .card-title-intern {
+  text-align: center;
   background-color: var(--intern);
 }
 
 .card-subtitle {
-  /* role */
+  text-align: center;
   color: var(--card-border);
   padding: 1rem;
+  border-bottom: 1px solid var(--card-border);
 }
 
 .card-text span {
@@ -71,5 +75,6 @@ h2 {
 }
 
 .card-text {
+  margin-top: 1rem;
   color: var(--card-text);
 }
