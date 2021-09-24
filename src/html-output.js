@@ -1,22 +1,11 @@
 const fs = require('fs');
 const teamInfoForPage = require('./prompts');
 
-// take in array of all employees
 buildTeam = (teamMembers) => {
    // initialize array for each card to be added to html template
    const employeeCards = [];
-   for (i = 0; i < teamMembers.length; i++) {
-      // for each employee, push respective card into html template
-      if (teamMembers[i].getRole() === 'Manager') {
-         employeeCards.push(teamMembers[i].getCard());
-      } else if (teamMembers[i].getRole() === 'Engineer') {
-         employeeCards.push(teamMembers[i].getCard());
-      } else if (teamMembers[i].getRole() === 'Intern') {
-         employeeCards.push(teamMembers[i].getCard());
-      }
-   }
-
-   // build html page
+   // push each employee card into the employee card array to be rendered onto the HTML page
+   for (member of teamMembers) { employeeCards.push(member.getCard()); };
    buildPage(employeeCards);
 };
 
@@ -58,9 +47,8 @@ buildPage = employeeCards => {
    renderHtmlTemplate(htmlTemplate);
 };
 
-
 renderHtmlTemplate = async (htmlTemplate) => {
-   // create html template file in src directory
+   // create html template file in /dist directory
    try {
       await fs.writeFileSync('./dist/index.html', htmlTemplate)
 
