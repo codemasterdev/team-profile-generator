@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap");
+
 * {
   margin: 0;
   border: 0;
@@ -11,10 +14,14 @@
   --manager: hsl(13, 90%, 58%);
   --engineer: hsl(173, 70%, 35%);
   --intern: hsl(61, 64%, 63%);
-  --card-text: rgb(182, 176, 174);
+  --card-text: hsl(15, 5%, 70%);
+  /* --links: rgb(238, 113, 29); */
+  --primary-font: "Tajawal", "Bookman Old Style", "serif";
+  --card-title-text: "Abel", Arial, sans-serif;
 }
 
 body {
+  font-family: var(--primary-font);
   background: var(--bg-dark);
 }
 
@@ -24,6 +31,8 @@ header {
 }
 
 h1 {
+  font-size: 4rem;
+  font-weight: 700;
   color: var(--card-border);
 }
 
@@ -44,6 +53,7 @@ h1 {
 }
 
 h2 {
+  color: var(--bg-dark);
   border-radius: 8px;
   padding: 0.5rem;
 }
@@ -51,16 +61,19 @@ h2 {
 .card-title-manager {
   text-align: center;
   background-color: var(--manager);
+  font-family: var(--card-title-text);
 }
 
 .card-title-engineer {
   text-align: center;
   background-color: var(--engineer);
+  font-family: var(--card-title-text);
 }
 
 .card-title-intern {
   text-align: center;
   background-color: var(--intern);
+  font-family: var(--card-title-text);
 }
 
 .card-subtitle {
@@ -68,13 +81,26 @@ h2 {
   color: var(--card-border);
   padding: 1rem;
   border-bottom: 1px solid var(--card-border);
+  font-family: var(--card-title-text);
 }
 
 .card-text span {
-  font-weight: bold;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .card-text {
+  font-size: 1.2rem;
+  font-weight: 300;
   margin-top: 1rem;
   color: var(--card-text);
+}
+
+a {
+  color: var(--card-border);
+  transition: 0.5s;
+}
+
+a:hover {
+  color: var(--manager);
 }

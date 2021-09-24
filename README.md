@@ -4,7 +4,8 @@
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![Node](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![Bootstrap](https://img.shields.io/badge/Bootstrap-00B2FF?style=for-the-badge&logo=bootstrap&logoColor=white)
 
-<!-- screenshot of html page here-->
+<br>
+<img src="./assets/img/html-page.png" alt="screenshot of generated html team profile landing page" width="800px" height="400px">
 
 ## TABLE OF CONTENTS
   1. [Description](#description)
@@ -18,7 +19,7 @@
 
 ## Description
 
-Fill out some command prompts over a few minutes and be given a beautiful-looking team profile page! A perfect application for someone who needs to spin up an organized employee list with necessary information. A CSS stylesheet is included for aesthetics, but the stylesheet is also fully customizable if the user so desires to style the page him or herself.
+Fill out some command prompts over a few minutes and be given a beautiful-looking team profile page, using a combination of Bootstrap and custom CSS! A perfect application for someone who needs to spin up an organized employee list with necessary information. A CSS stylesheet is included for aesthetics, but the stylesheet is also fully customizable if the user so desires to style the page him or herself.
 
 ### This project can be found:
 
@@ -66,7 +67,7 @@ You will immediately be welcomed and prompted in your console. Use is very simpl
 
 After the end of the manager information prompt, you will be given a choice: add an engineer, add an intern, or finish building the team (thus rendering the HTML from your given list of employees).
 
-You're finished! Go to your `/dist` directory and you will find your `index.html` landing page, along with a `css.style` file, which is fully editable if so desired. 
+You're finished! Go to your `/dist` directory and you will find your `index.html` landing page, along with a `css.style` file, which is fully editable if so desired. **Be mindful that Bootstrap was used and imported to create the mobile-responsive flex layout.** Bootstrap can, however, be easily overriden by adding CSS properties to classes of the same name (as has already been done).
 
 > *NOTE: To overwrite your team profile with a new one, launch the application and fill out the prompts again. The `index.html` file will be automatically overriden with the new information.*
 
