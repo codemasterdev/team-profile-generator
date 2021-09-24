@@ -11,7 +11,6 @@
   --manager: hsl(13, 90%, 58%);
   --engineer: hsl(173, 70%, 35%);
   --intern: hsl(61, 64%, 63%);
-  --header: rgb(111, 92, 219);
   --card-text: rgb(182, 176, 174);
 }
 
@@ -25,7 +24,7 @@ header {
 }
 
 h1 {
-  color: var(--header);
+  color: var(--card-border);
 }
 
 .card-position {
