@@ -4,6 +4,15 @@
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![Node](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![Bootstrap](https://img.shields.io/badge/Bootstrap-00B2FF?style=for-the-badge&logo=bootstrap&logoColor=white)
 
+## TABLE OF CONTENTS
+  1. [Description](#description)
+  2. [Installation](#installation)
+  3. [Usage](#usage)
+  4. [Technologies](#contribution)
+  5. [General Info](#general)
+  6. [Testing](#testing)
+  7. [License](#license)
+  8. [About](#about)
 
 ## Description
 
@@ -47,6 +56,10 @@ Imports are included in the code as such:
 ```
 ---
 
+## Usage
+
+---
+
 ## Technologies
 
 > The following were used in this project:
@@ -61,7 +74,7 @@ Imports are included in the code as such:
 
 ---
 
-## General Info
+## General
 
 ### User Prompting
 
@@ -77,7 +90,7 @@ Anyone is welcome to `clone` or `fork` and submit `pull` requests from the repos
 
 ---
 
-## About the Author
+## About
 
 Brent is a Full-Stack Web Developer committed to building fun and efficient projects.
 
