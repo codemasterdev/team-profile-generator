@@ -78,6 +78,7 @@ module.exports =
       // create the manager object and push it to the team members array
       const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
       teamMembers.push(manager);
+      // present user with choice to add members or finish up
       addMemberOrBuildTeam();
    };
 
