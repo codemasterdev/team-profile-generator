@@ -71,7 +71,7 @@ You're finished! Go to your `/dist` directory and you will find your `index.html
 
 > *NOTE: To overwrite your team profile with a new one, launch the application and fill out the prompts again. The `index.html` file will be automatically overriden with the new information.*
 
-A walk-through video on going through the application can be found [here]('https://drive.google.com/file/d/1dXAWhLq-AGHXjJbjyYPYDpzhLvFEuK1f/view?usp=sharing').
+A walk-through video on going through the application can be found [here](https://drive.google.com/file/d/1dXAWhLq-AGHXjJbjyYPYDpzhLvFEuK1f/view?usp=sharing).
 
 ### General
 
