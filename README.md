@@ -14,7 +14,7 @@
   4. [Technologies](#technologies)
   5. [Contribution](#contribution)
   6. [Testing](#testing)
-  7. [License](#license)
+  7. [License](#licensing)
   8. [About](#about)
 
 ## Description
@@ -29,7 +29,9 @@ Fill out some command prompts over a few minutes and be given a beautiful-lookin
 
 ## Installation
 
-Go to the [repository](https://github.com/brentocracy/team-profile-generator) and ``` git clone ``` it (forking is up to you). In order to run the application to generate your page, make sure you install the following dependencies.
+You must have [Node.js](https://nodejs.org/en/) installed.
+
+Go to the [repository](https://github.com/brentocracy/team-profile-generator) and clone it by entering ``` git clone https://github.com/brentocracy/team-profile-generator.git```. In order to run the application to generate your page, make sure you install the following dependencies:
 
 #### *Inquirer*
 `npm install inquirer` for all prompts.
