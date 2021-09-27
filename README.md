@@ -166,6 +166,6 @@ I am a Full-Stack Web Developer committed to building fun and efficient projects
 
 I'm always available for collaboration and pleasantries.
 
-Kindly reach out at <worldsbestbrent@gmail.com>!
+Kindly reach out at <brentmatthewgaines@gmail.com>!
 
 
